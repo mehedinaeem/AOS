@@ -1,0 +1,105 @@
+{
+  "site": {
+    "name": "Amader Online School",
+    "founder": "Md Mehedi Hasan Naeem",
+    "facebookUrl": "https://www.facebook.com/amaderonlineschool",
+    "youtubeUrl": "https://www.youtube.com/@amader_online_school",
+    "youtubeChannelId": "UC3tE_x8F91uYlzvkSM1jxVA",
+    "email": "",
+    "phone": ""
+  },
+  "classes": [
+    {
+      "id": "class-6",
+      "slug": "class-6",
+      "name": "Class 6",
+      "nameBn": "ষষ্ঠ শ্রেণি",
+      "order": 6,
+      "groups": ["general"],
+      "subjectIds": ["class-6-mathematics"]
+    }
+  ],
+  "subjects": [
+    {
+      "id": "class-6-mathematics",
+      "slug": "class-6-mathematics",
+      "classId": "class-6",
+      "group": "general",
+      "name": "Mathematics",
+      "nameBn": "গণিত",
+      "description": "",
+      "icon": "calculator",
+      "color": "blue",
+      "courseIds": ["class-6-mathematics-foundation"]
+    }
+  ],
+  "courses": [
+    {
+      "id": "class-6-mathematics-foundation",
+      "slug": "class-6-mathematics-foundation",
+      "classId": "class-6",
+      "subjectId": "class-6-mathematics",
+      "group": "general",
+      "title": "Class 6 Mathematics",
+      "titleBn": "ষষ্ঠ শ্রেণির গণিত",
+      "description": "",
+      "thumbnail": "",
+      "featured": false,
+      "published": false,
+      "chapterIds": ["c6-math-chapter-1"],
+      "playlistIds": []
+    }
+  ],
+  "chapters": [
+    {
+      "id": "c6-math-chapter-1",
+      "courseId": "class-6-mathematics-foundation",
+      "slug": "chapter-1",
+      "number": 1,
+      "title": "Chapter title",
+      "titleBn": "অধ্যায়ের নাম",
+      "lessonIds": ["c6-math-ch1-lesson-1"]
+    }
+  ],
+  "lessons": [
+    {
+      "id": "c6-math-ch1-lesson-1",
+      "slug": "lesson-1",
+      "courseId": "class-6-mathematics-foundation",
+      "chapterId": "c6-math-chapter-1",
+      "title": "Lesson title",
+      "titleBn": "পাঠের নাম",
+      "description": "",
+      "youtubeUrl": "",
+      "youtubeVideoId": "",
+      "duration": "",
+      "order": 1,
+      "sourceType": "official",
+      "sourceChannel": "Amader Online School",
+      "sourceChannelUrl": "https://www.youtube.com/@amader_online_school",
+      "licenseStatus": "standard-youtube-license",
+      "attribution": "Video embedded from Amader Online School on YouTube.",
+      "tags": [],
+      "published": false
+    }
+  ],
+  "playlists": [
+    {
+      "id": "sample-playlist",
+      "slug": "sample-playlist",
+      "title": "Sample Playlist",
+      "classId": "class-6",
+      "subjectId": "class-6-mathematics",
+      "courseId": "class-6-mathematics-foundation",
+      "youtubeUrl": "",
+      "youtubePlaylistId": "",
+      "sourceType": "official",
+      "sourceChannel": "Amader Online School",
+      "sourceChannelUrl": "https://www.youtube.com/@amader_online_school",
+      "licenseStatus": "standard-youtube-license",
+      "attribution": "Playlist embedded from Amader Online School on YouTube.",
+      "featured": false,
+      "published": false
+    }
+  ]
+}
