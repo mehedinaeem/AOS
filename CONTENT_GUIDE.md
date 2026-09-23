@@ -42,7 +42,7 @@ Run `npm test` and `npm run build`. Build validation rejects duplicate IDs, orph
 
 ## Settings and local features
 
-The `site` export in `src/data/catalog.js` centralizes editable contact fields and brand information. Supply an email to enable preparing a mailto message; the form never submits to a backend. Progress, bookmarks, notes, theme, and recent history are saved under `aos:v1:learning` on the learner’s device. They do not sync. Clearing local data removes those preferences and activity.
+The `site`, `founder`, and `schoolSocials` exports in `src/data/catalog.js` centralize brand, contact, and profile information. Contact uses direct email and Facebook links; there is no contact form. Empty founder profile URL fields are hidden until a confirmed URL is supplied. The portrait is stored at `public/images/founder/mehedi-naeem.jpg`. Progress, bookmarks, notes, theme, and recent history are saved under `aos:v1:learning` on the learner’s device. They do not sync. Clearing local data removes those preferences and activity.
 
 ## Independent official-video archive
 

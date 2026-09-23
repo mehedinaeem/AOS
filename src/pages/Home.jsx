@@ -13,6 +13,7 @@ import {
   Compass,
   Heart,
   Youtube,
+  Pause,
 } from "lucide-react";
 import {
   classes,
@@ -35,6 +36,7 @@ export default function Home() {
   const [query, setQuery] = useState("");
   const navigate = useNavigate();
   const reduce = useReducedMotion();
+  const [artPaused, setArtPaused] = useState(false);
   return (
     <>
       <section className="hero">
@@ -57,6 +59,24 @@ export default function Home() {
                 </svg>
               </span>
             </h1>
+            <motion.p
+              className="hero-origin"
+              data-paused={artPaused || reduce}
+              aria-label={`Since ${site.foundedYear}`}
+              initial={reduce ? false : { opacity: 0, scale: 0.85, y: 14 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{
+                type: "spring",
+                stiffness: 160,
+                damping: 16,
+                delay: reduce ? 0 : 0.3,
+              }}
+            >
+              <span className="origin-line" aria-hidden="true" />
+              <span className="origin-since">Since</span>
+              <strong>{site.foundedYear}</strong>
+              <span className="origin-line" aria-hidden="true" />
+            </motion.p>
             <p className="hero-description">
               Welcome to <strong>Amader Online School.</strong>
               <br />
@@ -87,7 +107,11 @@ export default function Home() {
               </span>
             </div>
           </motion.div>
-          <div className="hero-art" aria-label="An illustrated learning space">
+          <div
+            className="hero-art"
+            data-paused={artPaused || reduce}
+            aria-label="An illustrated learning space"
+          >
             <span className="art-spark spark-one">✦</span>
             <span className="art-spark spark-two">✧</span>
             <div className="art-orbit" />
@@ -137,6 +161,22 @@ export default function Home() {
             </div>
             <span className="art-caption">
               A brighter tomorrow begins with learning.
+              {!reduce && (
+                <button
+                  className="art-motion-toggle"
+                  onClick={() => setArtPaused((value) => !value)}
+                  aria-label={
+                    artPaused ? "Play hero animations" : "Pause hero animations"
+                  }
+                  title={artPaused ? "Play animation" : "Pause animation"}
+                >
+                  {artPaused ? (
+                    <Play size={13} aria-hidden="true" />
+                  ) : (
+                    <Pause size={13} aria-hidden="true" />
+                  )}
+                </button>
+              )}
             </span>
           </div>
         </div>

@@ -301,6 +301,7 @@ header {
 }
 .hero-trust {
   display: flex;
+  flex-wrap: wrap;
   gap: 20px;
   margin-top: 22px;
   font-size: 10px;
@@ -1697,5 +1698,463 @@ main:focus {
   }
   .official-video-copy {
     padding: 17px;
+  }
+}
+/* Founder and contact additions reuse the existing card and color system. */
+.founder-section {
+  margin-top: 40px;
+  padding: 32px;
+  clear: both;
+}
+.founder-section > .eyebrow {
+  margin-bottom: 26px;
+}
+.founder-profile {
+  display: grid;
+  grid-template-columns: 170px minmax(0, 1fr);
+  gap: 36px;
+  align-items: center;
+}
+.founder-photo {
+  width: 170px;
+  height: 170px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+  border: 3px solid var(--pale);
+  box-shadow: 0 5px 20px #0755cf16;
+  display: block;
+}
+.founder-copy h2 {
+  font-size: 26px;
+  margin-bottom: 8px;
+}
+.founder-copy .founder-role {
+  color: var(--blue);
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+.founder-copy > p {
+  max-width: 710px;
+}
+.profile-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 17px;
+}
+.profile-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--blue);
+  transition:
+    background 0.18s,
+    color 0.18s,
+    transform 0.18s;
+}
+.profile-link.labeled {
+  width: auto;
+  padding: 0 15px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 550;
+}
+.profile-link:hover {
+  background: #0755cf;
+  color: #fff;
+  border-color: #0755cf;
+  transform: translateY(-2px);
+  box-shadow: 0 3px 10px #0755cf1a;
+}
+.about-school-socials {
+  margin-top: 30px;
+}
+.school-socials h3 {
+  margin: 0;
+  font-size: 15px;
+}
+.contact-grid > .card {
+  padding: 30px;
+}
+.contact-grid h2 {
+  font-size: 24px;
+  margin-bottom: 24px;
+}
+.contact-email {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 26px 0 30px;
+  color: var(--blue);
+}
+.contact-email > div {
+  min-width: 0;
+}
+.contact-email h3 {
+  margin: 0 0 5px;
+  font-size: 13px;
+  color: var(--muted);
+}
+.contact-email a {
+  font-size: 16px;
+  overflow-wrap: anywhere;
+}
+.contact-founder {
+  border-top: 1px solid var(--border);
+  margin-top: 28px;
+  padding-top: 24px;
+}
+.contact-founder h3 {
+  font-size: 13px;
+  color: var(--muted);
+  margin: 0 0 8px;
+}
+.contact-founder-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--ink);
+}
+.contact-invitation {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background: var(--soft);
+}
+.contact-mail-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  background: var(--pale);
+  color: var(--blue);
+  display: grid;
+  place-items: center;
+  margin-bottom: 24px;
+}
+.contact-invitation h2 {
+  margin-bottom: 14px;
+}
+.contact-invitation > p {
+  font-size: 15px;
+  max-width: 400px;
+}
+.contact-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 13px;
+  margin-top: 28px;
+  max-width: 100%;
+}
+.contact-actions .button {
+  max-width: 100%;
+  white-space: normal;
+  text-align: center;
+}
+.footer-grid .footer-founder {
+  margin-top: 14px;
+  font-size: 11px;
+}
+.footer-grid > div > a.footer-email {
+  display: inline-block;
+  color: var(--blue);
+  margin-top: 7px;
+  overflow-wrap: anywhere;
+  font-size: 11px;
+}
+@media (max-width: 600px) {
+  .founder-section {
+    padding: 26px 20px;
+  }
+  .founder-section > .eyebrow {
+    justify-content: center;
+  }
+  .founder-profile {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 22px;
+    text-align: center;
+  }
+  .founder-photo {
+    width: 132px;
+    height: 132px;
+    margin-inline: auto;
+  }
+  .founder-copy h2 {
+    font-size: 22px;
+  }
+  .founder-copy .profile-links {
+    justify-content: center;
+  }
+  .contact-grid > .card {
+    padding: 24px;
+  }
+  .contact-email a {
+    font-size: 14px;
+  }
+  .contact-grid h2 {
+    font-size: 22px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .profile-link:hover {
+    transform: none;
+  }
+}
+
+/* Layered motion preserves each card's original angled composition. */
+@keyframes learning-arrive {
+  from {
+    opacity: 0;
+    scale: 0.94;
+    filter: blur(3px);
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+    filter: blur(0);
+  }
+}
+@keyframes learning-drift {
+  0%,
+  100% {
+    translate: 0 0;
+    rotate: 0deg;
+  }
+  35% {
+    translate: 3px -12px;
+    rotate: 1.3deg;
+  }
+  70% {
+    translate: -2px -5px;
+    rotate: -0.8deg;
+  }
+}
+@keyframes learning-tag-drift {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: -5px -15px;
+  }
+}
+@keyframes learning-book-lift {
+  0%,
+  65%,
+  100% {
+    translate: 0 0;
+  }
+  28%,
+  38% {
+    translate: 7px -5px;
+  }
+}
+@keyframes learning-sparkle {
+  0%,
+  100% {
+    scale: 0.9;
+    rotate: -10deg;
+  }
+  50% {
+    scale: 1.25;
+    rotate: 35deg;
+  }
+}
+@keyframes learning-orbit {
+  to {
+    rotate: 360deg;
+  }
+}
+@keyframes learning-sheen {
+  0%,
+  65% {
+    translate: -250% 0;
+  }
+  90%,
+  100% {
+    translate: 650% 0;
+  }
+}
+.hero-art .book {
+  position: relative;
+  overflow: hidden;
+}
+.hero-art .book::after {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 30%;
+  background: linear-gradient(105deg, transparent, #ffffff28, transparent);
+  transform: skewX(-18deg);
+  translate: -250% 0;
+  pointer-events: none;
+}
+.hero-art .art-orbit::after {
+  content: "";
+  position: absolute;
+  top: 30px;
+  left: 55px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--blue);
+  box-shadow: 0 0 0 6px #0755cf10;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .hero-art .study-card {
+    animation:
+      learning-arrive 0.85s ease-out both,
+      learning-drift 7s ease-in-out 0.85s infinite;
+  }
+  .hero-art .tag-top {
+    animation:
+      learning-arrive 0.7s ease-out 0.2s both,
+      learning-tag-drift 5.5s ease-in-out 0.9s infinite;
+  }
+  .hero-art .tag-bottom {
+    animation:
+      learning-arrive 0.7s ease-out 0.45s both,
+      learning-tag-drift 6.5s ease-in-out 1.4s infinite reverse;
+  }
+  .hero-art .book {
+    animation: learning-book-lift 5s ease-in-out infinite;
+  }
+  .hero-art .red-book {
+    animation-delay: 0.3s;
+  }
+  .hero-art .cream-book {
+    animation-delay: 0.6s;
+  }
+  .hero-art .book::after {
+    animation: learning-sheen 7s ease-in-out 1s infinite;
+  }
+  .hero-art .red-book::after {
+    animation-delay: 1.3s;
+  }
+  .hero-art .cream-book::after {
+    animation-delay: 1.6s;
+  }
+  .hero-art .art-spark {
+    animation: learning-sparkle 4.5s ease-in-out infinite;
+  }
+  .hero-art .spark-two {
+    animation-delay: -2s;
+  }
+  .hero-art .art-orbit {
+    animation: learning-orbit 35s linear infinite;
+  }
+  .hero-art[data-paused="true"] *,
+  .hero-art[data-paused="true"] *::after {
+    animation-play-state: paused;
+  }
+}
+.art-caption {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.art-motion-toggle {
+  width: 28px;
+  height: 28px;
+  display: inline-grid;
+  place-items: center;
+  color: var(--blue);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.art-motion-toggle:hover {
+  background: var(--pale);
+}
+
+.hero-origin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  margin: 0 0 24px;
+  color: var(--blue);
+}
+.origin-since {
+  font-size: 13px;
+  font-weight: 650;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+.hero-origin strong {
+  position: relative;
+  overflow: hidden;
+  color: var(--blue);
+  font-size: clamp(32px, 3.2vw, 43px);
+  font-weight: 750;
+  letter-spacing: -0.04em;
+  line-height: 1.2;
+}
+.origin-line {
+  width: clamp(24px, 5vw, 60px);
+  height: 2px;
+  background: var(--blue);
+  opacity: 0.25;
+  border-radius: 2px;
+}
+@keyframes origin-reveal {
+  from {
+    scale: 0 1;
+  }
+  to {
+    scale: 1 1;
+  }
+}
+@keyframes origin-highlight {
+  from {
+    translate: -150% 0;
+  }
+  to {
+    translate: 350% 0;
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .origin-line {
+    animation: origin-reveal 0.8s ease-out 0.45s both;
+  }
+  .hero-origin strong::after {
+    content: "";
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 45%;
+    background: linear-gradient(110deg, transparent, #ffffff85, transparent);
+    transform: skewX(-18deg);
+    translate: -150% 0;
+    animation: origin-highlight 1.6s ease-in-out 0.9s both;
+    pointer-events: none;
+  }
+}
+
+@keyframes origin-float {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 -7px;
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .hero-origin {
+    animation: origin-float 3.8s ease-in-out infinite;
+  }
+  .hero-origin[data-paused="true"],
+  .hero-origin[data-paused="true"] *,
+  .hero-origin[data-paused="true"] *::after {
+    animation-play-state: paused;
   }
 }

@@ -1,8 +1,13 @@
-import { useState } from "react";
+import { Mail, Facebook } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Page } from "./Catalog";
 import { Button } from "../components/ui";
-import { site } from "../data/catalog";
+import { site, founder as founderInfo, schoolSocials } from "../data/catalog";
+import {
+  FounderSection,
+  FounderLinks,
+  SchoolSocials,
+} from "../components/Founder";
 export function About({ founder = false }) {
   return (
     <Page
@@ -42,73 +47,75 @@ export function About({ founder = false }) {
           </Button>
         </div>
       </div>
+      <FounderSection />
+      <section className="about-school-socials">
+        <SchoolSocials />
+      </section>
     </Page>
   );
 }
 export function Contact() {
-  const [status, setStatus] = useState("");
   return (
     <Page
       title="Let’s stay connected."
       description="Questions, suggestions, or a content correction? Here’s where to find us."
     >
-      <div className="grid two">
-        <div className="card">
-          <h2>Amader Online School</h2>
-          <p>
-            <a href={site.facebookUrl}>Visit our Facebook page ↗</a>
-          </p>
-          <p>
-            <a href={site.youtubeUrl}>Visit our YouTube channel ↗</a>
-          </p>
-          {site.email && (
-            <p>
-              <a href={`mailto:${site.email}`}>{site.email}</a>
-            </p>
-          )}
-          {site.phone && <p>{site.phone}</p>}
-          <p className="muted">
-            {site.email
-              ? "Use the form to prepare a message in your email app."
-              : "An email address and phone number have not been provided. You can reach the school through its Facebook page."}
-          </p>
-        </div>
-        <form
-          className="card contact-form"
-          onSubmit={(e) => {
-            e.preventDefault();
-            const f = new FormData(e.currentTarget);
-            if (!site.email) {
-              setStatus(
-                "Direct submission is unavailable. Please contact us through Facebook. Your message has not been sent.",
-              );
-              return;
-            }
-            location.href = `mailto:${site.email}?subject=${encodeURIComponent(`Website message from ${f.get("name")}`)}&body=${encodeURIComponent(`Reply to: ${f.get("email")}\n\n${f.get("message")}`)}`;
-            setStatus(
-              "Your email app has been opened. Send the message there to complete your request.",
-            );
-          }}
+      <div className="grid two contact-grid">
+        <section
+          className="card contact-details"
+          aria-labelledby="school-contact-heading"
         >
-          <h2>Write a message</h2>
-          <p>This form does not send messages to a server.</p>
-          <label>
-            Your name
-            <input name="name" autoComplete="name" required maxLength="100" />
-          </label>
-          <label>
-            Email address
-            <input name="email" type="email" autoComplete="email" required />
-          </label>
-          <label>
-            Message
-            <textarea name="message" required minLength="10" maxLength="5000" />
-          </label>
-          <Button type="submit">
-            {site.email ? "Open email app" : "Check contact options"}
-          </Button>
-          <p role="status">{status}</p>
-        </form>
+          <h2 id="school-contact-heading">Amader Online School</h2>
+          <div className="contact-email">
+            <Mail size={23} aria-hidden="true" />
+            <div>
+              <h3>Email</h3>
+              <a
+                href={`mailto:${site.email}`}
+                aria-label={`Email Amader Online School at ${site.email}`}
+              >
+                {site.email}
+              </a>
+            </div>
+          </div>
+          <SchoolSocials />
+          <div className="contact-founder">
+            <h3>Founder</h3>
+            <Link className="contact-founder-name" to="/founder">
+              {founderInfo.name}
+            </Link>
+            <FounderLinks />
+          </div>
+        </section>
+        <section
+          className="card contact-invitation"
+          aria-labelledby="email-heading"
+        >
+          <span className="contact-mail-icon">
+            <Mail size={28} aria-hidden="true" />
+          </span>
+          <h2 id="email-heading">Send us an email</h2>
+          <p>
+            Have a question, suggestion, or content correction? We'd be happy to
+            hear from you.
+          </p>
+          <div className="contact-actions">
+            <a className="button" href={`mailto:${site.email}`}>
+              <Mail size={18} aria-hidden="true" />
+              Email Amader Online School
+            </a>
+            <a
+              className="button secondary"
+              href={schoolSocials.facebook}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Message Amader Online School on Facebook"
+            >
+              <Facebook size={18} aria-hidden="true" />
+              Message on Facebook
+            </a>
+          </div>
+        </section>
       </div>
     </Page>
   );
@@ -132,7 +139,7 @@ export function Policy({ type }) {
         ],
         [
           "Contact",
-          "The contact form has no server submission. When an email address is configured, the form opens your email app.",
+          "Contact links open your email app or the school’s Facebook page. This website does not collect or submit contact-form messages.",
         ],
       ],
     },

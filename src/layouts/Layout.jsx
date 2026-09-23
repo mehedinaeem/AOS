@@ -151,15 +151,23 @@ export default function Layout() {
               Learning belongs to everyone.
               <br />A free space to learn, explore, and grow.
             </p>
+            <p className="footer-founder">Founded by {site.founder}</p>
+            <a className="footer-email" href={`mailto:${site.email}`}>
+              {site.email}
+            </a>
             <div className="social">
               <a
                 href={site.youtubeUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label="Amader Online School on YouTube"
               >
                 <Youtube size={21} />
               </a>
               <a
                 href={site.facebookUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label="Amader Online School on Facebook"
               >
                 <Facebook size={21} />

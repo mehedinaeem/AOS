@@ -1,5 +1,31 @@
 import template from "./course-data.template.json" with { type: "json" };
-export const site = { ...template.site, canonicalUrl: "" };
+export const founder = {
+  name: template.site.founder,
+  role: "Founder, Amader Online School",
+  email: "mehedinaeem@gmail.com",
+  photo: "/images/founder/mehedi-naeem.jpg",
+  description:
+    "Md Mehedi Hasan Naeem is the founder of Amader Online School, an educational platform created to make organized and accessible learning resources available to students.",
+  links: {
+    github: "https://github.com/mehedinaeem",
+    // Add confirmed personal URLs here. Empty fields are not displayed.
+    website: "",
+    linkedin: "https://www.linkedin.com/in/mehedinaeem/",
+    scholar: "https://scholar.google.com/citations?user=1rcfRWkAAAAJ&hl=en",
+    orcid: "",
+    facebook: "https://www.facebook.com/mehedinaeem00",
+  },
+};
+export const schoolSocials = {
+  facebook: template.site.facebookUrl,
+  youtube: template.site.youtubeUrl,
+};
+export const site = {
+  ...template.site,
+  email: founder.email,
+  foundedYear: 2021,
+  canonicalUrl: "",
+};
 const namesBn = [
   "ষষ্ঠ শ্রেণি",
   "সপ্তম শ্রেণি",

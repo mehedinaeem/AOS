@@ -19,7 +19,7 @@ All ten requested stages are implemented: project foundation; shared components/
 
 - Real course, chapter, playlist, and lesson records with YouTube URLs and verified source attribution. The public catalog intentionally contains no fabricated videos.
 - Confirmed group-specific subjects and course organization where applicable. Current general subject records are directory placeholders, not a claim of full curriculum coverage.
-- Optional school email and phone. Without an email, the form explains that direct submission is unavailable and directs visitors to the confirmed Facebook page.
+- Optional phone and additional personal profile URLs. The confirmed email is now mehedinaeem@gmail.com; direct email and Facebook links replace the contact form.
 - Production domain via `SITE_URL` for canonical URLs, sitemap, and absolute social image URL.
 
 ## Limits and release checks
